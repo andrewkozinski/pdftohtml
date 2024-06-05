@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="600.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pdftohtml.OptionsController">
+   <children>
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+         <tabs>
+            <Tab text="CSS">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="10.0" layoutY="6.0" prefHeight="358.0" prefWidth="579.0">
+                           <children>
+                              <VBox prefHeight="358.0" prefWidth="579.0" spacing="3.0">
+                                 <children>
+                                    <Label text="Heading Font" />
+                                    <ChoiceBox fx:id="fontsChoiceBox" prefHeight="25.0" prefWidth="219.0" />
+                                    <Label text="Heading Font Size" />
+                                    <TextField fx:id="fontSizeTextField" prefHeight="25.0" prefWidth="366.0" />
+                                    <Label text="Heading Position" />
+                                    <HBox prefHeight="21.0" prefWidth="579.0" spacing="15.0">
+                                       <children>
+                                          <RadioButton fx:id="hLeft" mnemonicParsing="false" selected="true" text="Left">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="hPosition" />
+                                             </toggleGroup></RadioButton>
+                                          <RadioButton fx:id="hCenter" mnemonicParsing="false" text="Center" toggleGroup="$hPosition" />
+                                          <RadioButton fx:id="hRight" mnemonicParsing="false" text="Right" toggleGroup="$hPosition" />
+                                       </children>
+                                    </HBox>
+                                    <Label text="Paragraph Font" />
+                                    <ChoiceBox fx:id="paraFontsChoiceBox" prefHeight="25.0" prefWidth="219.0" />
+                                    <Label text="Paragraph Font Size" />
+                                    <TextField fx:id="pSelectedFontSize" />
+                                    <Label text="Paragraph Position" />
+                                    <HBox prefHeight="30.0" prefWidth="579.0" spacing="15.0">
+                                       <children>
+                                          <RadioButton fx:id="pLeft" mnemonicParsing="false" selected="true" text="Left">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="pPosition" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton fx:id="pCenter" mnemonicParsing="false" text="Center" toggleGroup="$pPosition" />
+                                          <RadioButton fx:id="pRight" mnemonicParsing="false" text="Right" toggleGroup="$pPosition" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children></VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Other">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="16.0" layoutY="16.0" prefHeight="345.0" prefWidth="575.0">
+                           <children>
+                              <Label text="Create Output Folder" />
+                              <HBox prefHeight="30.0" prefWidth="575.0" spacing="5.0">
+                                 <children>
+                                    <TextField fx:id="outputTextField" editable="false" prefHeight="25.0" prefWidth="512.0" />
+                                    <Button mnemonicParsing="false" onAction="#handleSelectOutputButton" text="Browse" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <HBox prefHeight="46.0" prefWidth="600.0" spacing="10.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleSaveOptions" prefHeight="10.0" prefWidth="42.0" style="-fx-background-color: white;" text="Save" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#closeOptions" prefHeight="10.0" prefWidth="52.0" style="-fx-background-color: white;" text="Cancel" />
+         </children>
+         <padding>
+            <Insets bottom="6.0" left="490.0" top="5.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
