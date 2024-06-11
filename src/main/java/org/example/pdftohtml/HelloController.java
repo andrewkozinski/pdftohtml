@@ -22,6 +22,7 @@ import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -92,6 +93,33 @@ public class HelloController {
         }
     }
 
+
+    /**
+     * When called creates a copy of all the custom fonts into the output directory
+     */
+    public void copyFonts(String dir) {
+
+        //Gets the fonts and copies the names into a list
+        File curDir = new File("./fonts");
+        List<String> fonts = Arrays.asList(curDir.list());
+
+        //Copies all the fonts into the output directory
+        for (String fontName : fonts) {
+            File font = new File("./fonts/" + fontName);
+            File copy = new File(dir + "/resources/" + fontName);
+            try {
+                Files.copy(font.toPath(), copy.toPath());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }
+
+    /**
+     * What is called when the button to generate the HTML files is pressed.
+     * The outputted HTML and the accompanying CSS file will be generated for the user once this is called.
+     */
     public void generateHTML() {
         System.out.println("Ran");
 
@@ -113,6 +141,8 @@ public class HelloController {
         //Create the HTML index file
         File newFile = new File(curTime + "/index.html");
 
+        //Copy in the custom fonts to the resources folder
+        copyFonts(curTime);
 
         //Write to the HTML file
         try {
@@ -477,6 +507,13 @@ public class HelloController {
 
                 if(userOptions.gethFontFamily() != null) {
                     cssWriter.write("font-family: " + userOptions.gethFontFamily() + ";");
+
+                    //Generate source if a custom font is selected
+                    if(userOptions.getpFontFamily().equals("Andrews Handwriting Regular")) {
+                        cssWriter.write("src: url(resources/AndrewsHandwriting-Regular.ttf);");
+                    } else if(userOptions.getpFontFamily().equals("Nicole Handwriting Regular")) {
+                        cssWriter.write("src: url(resources/NicoleHandwriting-Regular.ttf);");
+                    }
                 }
 
                 if(userOptions.gethFontSize() != null && !userOptions.gethFontSize().isEmpty()) {
@@ -487,6 +524,13 @@ public class HelloController {
 
                 if(userOptions.getpFontFamily() != null) {
                     cssWriter.write("font-family: " + userOptions.getpFontFamily() + ";");
+
+                    //Generate source if a custom font is selected
+                    if(userOptions.getpFontFamily().equals("Andrews Handwriting Regular")) {
+                        cssWriter.write("src: url(resources/AndrewsHandwriting-Regular.ttf);");
+                    } else if(userOptions.getpFontFamily().equals("Nicole Handwriting Regular")) {
+                        cssWriter.write("src: url(resources/NicoleHandwriting-Regular.ttf);");
+                    }
                 }
 
                 if(userOptions.getpFontSize() != null && !userOptions.getpFontSize().isEmpty()) {

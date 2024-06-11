@@ -141,7 +141,7 @@ public class OptionsController {
 
         //Array for list of fonts
         String fontList[] = {"Arial, sans-serif", "Verdana, sans-serif", "Tahoma, sans-serif", "Trebuchet MS, sans-serif", "Times New Roman, serif",
-                                "Georgia, serif", "Garamond, serif", "Courier New, monospace", "Brush Script MT, cursive"};
+                                "Georgia, serif", "Garamond, serif", "Courier New, monospace", "Brush Script MT, cursive", "Andrews Handwriting Regular", "Nicole Handwriting Regular"};
 
         hFonts.addAll(fontList);
         pFonts.addAll(fontList);
