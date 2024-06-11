@@ -238,6 +238,8 @@ public class HelloController {
 
     }
 
+    //Currently, in the generated HTML files with the embedded PDFs they have an issue of having .html at the end of the file name on the main index HTML file
+    //Remember to fix this later.
     /**
      * When called, writes HTML to a file that embeds a PDF into the webpage
      * Referenced this page in figuring out how to embed a PDF file in HTML: https://pspdfkit.com/blog/2018/open-pdf-in-your-web-app/
