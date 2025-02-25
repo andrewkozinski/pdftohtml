@@ -1,6 +1,6 @@
 # PDF to HTML Converter
 
-This Java program takes in PDF files and converts them into HTML files with the PDFs embedded directly into the HTML. It's a simple tool to speed up the process of embedding PDF files into a website..
+This Java program takes in PDF files and converts them into HTML files with the PDFs embedded directly into the HTML. It's a simple tool to speed up the process of embedding PDF files into a website.
 
 ![Program Screenshot](https://i.imgur.com/fuJd7JO.png)
 
